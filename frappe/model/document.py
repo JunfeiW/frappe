@@ -509,7 +509,7 @@ class Document(BaseDocument):
 					conflict = True
 			else:
 				tmp = frappe.db.sql("""select modified, docstatus from `tab{0}`
-					where name = %s for update""".format(self.doctype), self.name, as_dict=True)
+					where name = %s""".format(self.doctype), self.name, as_dict=True)
 
 				if not tmp:
 					frappe.throw(_("Record does not exist"))
